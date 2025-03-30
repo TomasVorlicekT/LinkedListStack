@@ -2,6 +2,7 @@
 #include <stdlib.h>  
 #include <crtdbg.h>  
 #include <conio.h>
+#include <iostream>
 #include "ChiliString.h"
 #include "Stack.h"
 
@@ -163,6 +164,36 @@ void test8()
 
 int main()
 {
+	//Stack s;
+	//s.Push(5);
+	//s.Push(4);
+	//s.Push(3);
+	//s.Push(2);
+	//s.Push(10);
+	//std::cout << s.Size() << "\n";
+	//std::cout << s.Empty() << "\n";
+	//int poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//std::cout << s.Empty() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
+	//std::cout << s.Size() << "\n";
+	//poppedValue = s.Pop();
 	_CrtSetReportMode( _CRT_WARN,_CRTDBG_MODE_FILE );
 	_CrtSetReportFile( _CRT_WARN,_CRTDBG_FILE_STDERR );
 	_CrtSetReportMode( _CRT_ERROR,_CRTDBG_MODE_FILE );
@@ -172,12 +203,12 @@ int main()
 	
 	test1();
 	test2();
-	test3();
-	test4();
-	test5();
-	test6();
-	test7();
-	test8();
+	//test3();
+	//test4();
+	//test5();
+	//test6();
+	//test7();
+	//test8();
 
 	_CrtDumpMemoryLeaks();
 	while( !_kbhit() );

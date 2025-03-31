@@ -1,4 +1,5 @@
 #include "Stack.h"
+#include <iostream>
 
 Stack::Element::Element(int value_in, Element* nextPtr_in)
 	:
@@ -41,6 +42,65 @@ Stack::~Stack()
 
 }
 
+Stack::Stack(const Stack& source)
+{
+	// Handling of an empty stack
+	if (source.Empty())
+	{
+		firstElementPtr = nullptr;
+		lastElementPtr = nullptr;
+		return;
+	}
+
+	//// Handling of a single element stack, where first and last pointer point to the same element
+	//if (source.Size() == 1)
+	//{
+	//	Push(source.firstElementPtr->GetValue());
+	//	return;
+	//}
+
+	// For other cases we have to go though the linked list and make a deep copy for each element
+	Element* currentElementPtr_source = source.firstElementPtr;
+	Push(currentElementPtr_source->GetValue());
+
+	while (currentElementPtr_source != source.lastElementPtr)
+	{
+		currentElementPtr_source = currentElementPtr_source->GetNextElementPtr();
+		Push(currentElementPtr_source->GetValue());
+	}
+
+	std::cout << "Copy Constuctor\n";
+
+}
+
+Stack& Stack::operator=(const Stack& source)
+{
+	// Copy Assign will not bother checking for existing objects, it will pop all  
+	// the elements from the old stack and create a deep copy using Pop method
+	
+	const int size = Size();
+
+	for (int i = 0; i < size; i++)
+	{
+		Pop();
+	}
+
+	// Deep Copy
+	const int sizeSource = source.Size();
+	Element* currentElementPtr = source.firstElementPtr;
+
+	for (int i = 0; i < sizeSource; i++)
+	{
+		Push(currentElementPtr->GetValue());
+		currentElementPtr = currentElementPtr->GetNextElementPtr();
+	}
+
+	std::cout << "Executing Copy Assign\n";
+
+	return *this;
+
+}
+
 void Stack::Push(int val)
 {
 	Element* newElementPtr = new Element(val, nullptr);
@@ -68,8 +128,8 @@ int Stack::Pop()
 	int valueToReturn = lastElementPtr->GetValue();
 	Element* newLastElementPointer = firstElementPtr;
 
-	while (newLastElementPointer->GetNextElementPtr() != lastElementPtr &&
-		   newLastElementPointer->GetNextElementPtr() != nullptr)
+	while (newLastElementPointer->GetNextElementPtr() != lastElementPtr 
+		   && newLastElementPointer->GetNextElementPtr() != nullptr)
 	{
 		newLastElementPointer = newLastElementPointer->GetNextElementPtr();
 	}

@@ -18,6 +18,9 @@ private:
 	};
 
 public:
+	Stack() = default;
+	Stack(const Stack& source);
+	Stack& operator=(const Stack& source);
 	~Stack();
 	void Push( int val );
 	int Pop();

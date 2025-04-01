@@ -69,8 +69,6 @@ Stack::Stack(const Stack& source)
 		Push(currentElementPtr_source->GetValue());
 	}
 
-	std::cout << "Copy Constuctor\n";
-
 }
 
 Stack& Stack::operator=(const Stack& source)
@@ -85,7 +83,7 @@ Stack& Stack::operator=(const Stack& source)
 	}
 	
 	const int size = Size();
-
+	// Pop all elements from the current linked list
 	for (int i = 0; i < size; i++)
 	{
 		Pop();
@@ -100,8 +98,6 @@ Stack& Stack::operator=(const Stack& source)
 		Push(currentElementPtr->GetValue());
 		currentElementPtr = currentElementPtr->GetNextElementPtr();
 	}
-
-	std::cout << "Executing Copy Assign\n";
 
 	return *this;
 

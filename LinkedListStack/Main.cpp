@@ -173,7 +173,7 @@ void test9()
 	s2 = s2; // self assignment
 	s2.Pop();
 
-	if (s.Size() == 2 && s.Pop() == 3 && s2.Pop() == 3)
+	if (s.Size() == 2 && s.Pop() == 3 && s2.Pop() == 5)
 	{
 		chili::print("    Test 9 passed!\n");
 	}

@@ -77,6 +77,12 @@ Stack& Stack::operator=(const Stack& source)
 {
 	// Copy Assign will not bother checking for existing objects, it will pop all  
 	// the elements from the old stack and create a deep copy using Pop method
+
+	// First check for self assignment
+	if (firstElementPtr == source.firstElementPtr)
+	{
+		return *this;
+	}
 	
 	const int size = Size();
 

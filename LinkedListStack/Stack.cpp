@@ -52,13 +52,6 @@ Stack::Stack(const Stack& source)
 		return;
 	}
 
-	//// Handling of a single element stack, where first and last pointer point to the same element
-	//if (source.Size() == 1)
-	//{
-	//	Push(source.firstElementPtr->GetValue());
-	//	return;
-	//}
-
 	// For other cases we have to go though the linked list and make a deep copy for each element
 	Element* currentElementPtr_source = source.firstElementPtr;
 	Push(currentElementPtr_source->GetValue());
@@ -74,10 +67,11 @@ Stack::Stack(const Stack& source)
 Stack& Stack::operator=(const Stack& source)
 {
 	// Copy Assign will not bother checking for existing objects, it will pop all  
-	// the elements from the old stack and create a deep copy using Pop method
+	// the elements from the old stack and create a deep copy using Push method
 
 	// First check for self assignment
-	if (firstElementPtr == source.firstElementPtr)
+	// https://stackoverflow.com/questions/12015156/what-is-wrong-with-checking-for-self-assignment-and-what-does-it-mean
+	if (this == &source)
 	{
 		return *this;
 	}
